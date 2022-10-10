@@ -40,22 +40,15 @@ export function getMakingOrder(phone){
 export function getGoodsort() {
 	//获取奶茶的所有分类，如超值优惠，浓情可可等
 	return request({
-		url: 'http://localhost:31005/milk/selectallattribute'
+		url: 'http://localhost:31005/food/selectallattribute'
 	})
 }
 
 export function getAllGoods() {
-	//获取所有奶茶的信息，包含奶茶id 名字 价格
+	//获取所有菜品的信息，包含菜品id 名字 价格
 	return request({
-		url: 'http://localhost:31005/milk/selectall'
+		url: 'http://localhost:31005/food/selectall'
 		//url:'http://localhost:3000/good'
-	})
-}
-
-export function getAddinfos() {
-	//获取所有设置的小料信息，温度信息，甜度信息
-	return request({
-		url: 'http://localhost:31005/milk/findcharge'
 	})
 }
 
@@ -88,33 +81,10 @@ export function editShopInfo(infos) {
 	})
 }
 
-//编辑商品信息
-export function editGoods(good){
-	axios.post('http://localhost:31005/milk/add',good).then(res=>{
-		//console.log(res);
-	}).catch(err=>{
-		console.log(err);
-	})
-}
-//删除商品信息
-export function deleteGoods(id){
-	return request({
-		url:'http://localhost:31005/milk/delete/'+id
-	})
-}
-//添加商品信息
-export function addGoods(good){
-	axios.post('http://localhost:31005/milk/add',good).then(res=>{
-
-	}).catch(err=>{
-		console.log(err);
-	})
-}
-
 export function extraInfos(){
 	//获取小料信息
 	return request({
-		url: 'http://localhost:31005/milk/findcharge'
+		url: 'http://localhost:31005/food/findcharge'
 	})
 }
 

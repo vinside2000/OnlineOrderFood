@@ -7,20 +7,17 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "Teawithmilk")
-public class TeaWithMilk {
+@Table(name = "Food")
+public class Food {
 
     @Id
     @Column(name = "teaid")
-    private String teaId;
+    private String foodId;
 
-    @Column(name = "teaname")
-    private String TeaName;
+    @Column(name = "foodname")
+    private String FoodName;
     private String Attribute;
     private String Photo;
-    @Column(name = "cuptype")
-    private String CupType;
-    private Boolean Discount;
     private int count = 0;
     private int Price;
 }

@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import javax.transaction.Transactional;
 
 @Transactional
-public interface TeaMilkRepository extends JpaRepository<tea,String> {
+public interface FoodRepository extends JpaRepository<tea,String> {
 
     @Modifying
     public void deleteByteaid(String id);

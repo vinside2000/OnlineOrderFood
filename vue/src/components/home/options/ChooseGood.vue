@@ -10,11 +10,10 @@
       <el-tab-pane :label="index" v-for="(index,sort) in goodsort" class="navbaritem">
         <div v-for="good in goods" v-show="good.attribute == index" class="goodcards">
           <div class="imgdiv">
-            <img src="@/assets/img/goods/tea1.jpg" alt="" class="good-img">
+            <img src="@/assets/img/goods/1.jpg" alt="" class="good-img">
           </div>
           <div class="infodiv">
-            <p class="good-name">{{good.teaName}}</p>
-            <p class="typecup">{{good.cupType}}</p>
+            <p class="good-name">{{good.foodName}}</p>
             <p class="good-price"><span>￥{{good.price}}</span>起</p>
           </div>
           <div class="daodiv">
@@ -35,26 +34,14 @@
               &times;
             </button>
             <h4 class="modal-title" id="myModalLabel">
-              {{nowgood.teaName}}
+              {{nowgood.foodName}}
             </h4>
           </div>
           <div class="modal-body addoptions">
             <div>
-              <p>加料</p>
-              <el-radio-group v-model="charge">
-                <el-radio-button :label="city.chargeName" v-for="city in addfood"></el-radio-button>
-              </el-radio-group>
-            </div>
-            <div>
-              <p>温度</p>
-              <el-radio-group v-model="temperature">
-                <el-radio-button :label="city" v-for="city in warm"></el-radio-button>
-              </el-radio-group>
-            </div>
-            <div>
-              <p>糖度</p>
-              <el-radio-group v-model="sugar">
-                <el-radio-button :label="city" v-for="city in candy"></el-radio-button>
+              <p>口味</p>
+              <el-radio-group v-model="taste">
+                <el-radio-button :label="city" v-for="city in tastetype"></el-radio-button>
               </el-radio-group>
             </div>
           </div>
@@ -83,8 +70,7 @@
             <div class="modal-body">
               <div v-for="item in goodscar" class="item-info">
                 <div>
-                  <p class="item-name">{{item.teaName}}</p>
-                  <p class="item-add">{{item.charge.toString()}} {{item.temperature}} {{item.sugar}}</p>
+                  <p class="item-name">{{item.foodName}}</p>
                 </div>
                 <p class="item-price">￥{{item.price}}</p>
 
@@ -136,7 +122,6 @@ import Toast from '@/components/common/Toast'
 
 import { getGoodsort } from '@/network/http'
 import { getAllGoods } from '@/network/http'
-import { getAddinfos } from '@/network/http'
 
 
 export default {
@@ -144,13 +129,13 @@ export default {
   data() {
     return {
       goodsort:[
-        //奶茶分类
+        //菜品分类
       ],
       goods:[
-        //所有奶茶
+        //所有菜品
       ],
       goodscar:[],
-      //购物车存储的信息 总价 商品名称，商品价格，商品数量,小料，温度，甜度
+      //购物车存储的信息 总价 商品名称，商品价格，商品数量,口味
       totalmoney: 0,
       toastShow: false,
       toastText: '',
@@ -159,11 +144,8 @@ export default {
       addfood:[
 
       ],//小料 getaddinfos函数获取
-      charge:[],//选择的小料，根据用户选择获取
-      warm:['热','温','常规冰','多冰','少冰','去冰'],//温度
-      temperature:'',
-      candy:['常规','半糖','微糖','无糖'],//甜度
-      sugar:'',
+      tastetype:['不辣','微辣','中辣','特辣'],//口味
+      taste:'',
       nowgood:''
     }
   },
@@ -178,16 +160,9 @@ export default {
       })
     },
     getallgoods(){
-      //获取所有奶茶信息
+      //获取所有菜品信息
       getAllGoods().then(res=>{
         this.goods = res;
-      })
-    },
-    getaddinfos(){
-      //获取小料信息
-      getAddinfos().then(res=>{
-        this.addfood = res;
-        console.log(res);
       })
     },
     backTo() {
@@ -213,7 +188,7 @@ export default {
 
         //显示也要减1
         for(let i = 0; i < this.goods.length; i++) {
-          if(this.goods[i].teaName == item.teaName) {
+          if(this.goods[i].foodName == item.foodName) {
             this.goods[i].count--;
           }
         }
@@ -224,7 +199,7 @@ export default {
       this.totalmoney -= item.price;
       this.goodscar[id].count--;
       for(let i = 0; i < this.goods.length; i++) {
-        if(this.goods[i].teaName == item.teaName) {
+        if(this.goods[i].foodName == item.foodName) {
           this.goods[i].count--;
         }
       }
@@ -247,7 +222,7 @@ export default {
 
       //显示也要加一
       for(let i = 0; i < this.goods.length; i++) {
-        if(item.teaName == this.goods[i].teaName) {
+        if(item.foodName == this.goods[i].foodName) {
           this.goods[i].count++;
         }
       }
@@ -258,22 +233,14 @@ export default {
         return;
       }
       let temp = {};
-      temp.teaId = this.nowgood.teaId;
-      temp.teaName = this.nowgood.teaName;
-      temp.cupType = this.nowgood.cupType;
-
+      temp.foodId = this.nowgood.foodId;
+      temp.photo = this.nowgood.photo;
+      temp.foodName = this.nowgood.foodName;
       let addmoney = 0;
-      for(let i = 0; i < this.addfood.length; i++){
-        if(this.charge == this.addfood[i].chargeName){
-          addmoney = this.addfood[i].price;
-        }
-      }
 
       temp.price =  addmoney + this.nowgood.price;
       temp.count = 1;
-      temp.charge  = this.charge;
-      temp.temperature = this.temperature;
-      temp.sugar = this.sugar;
+      temp.taste = this.taste;
       temp.id = "";
       temp.number = temp.count;
       temp.orderId = "";
@@ -282,31 +249,11 @@ export default {
 
       //显示数量也加一
       for(let i = 0; i < this.goods.length; i++) {
-        if(temp.teaName == this.goods[i].teaName) {
+        if(temp.foodName == this.goods[i].foodName) {
           this.goods[i].count++;
         }
       }
 
-
-      let k = 0;
-      let id = -1;
-      for(let i = 0; i < this.goodscar.length; i++) {
-        if(temp.teaName == this.goodscar[i].teaName) {
-          //商品名字一样，同时加的小料、温度、甜度都一样
-          if(temp.charge == this.goodscar[i].charge && temp.temperature == this.goodscar[i].temperature && temp.sugar == this.goodscar[i].sugar) {
-            k = 1;
-            id = i;
-          }
-        }
-      }
-      if(k == 1) {
-        //全都一样，只加个数
-        this.goodscar[id].count++;
-      }
-      else {
-        //有一项不一样，就是一个新的物品
-        this.goodscar.push(temp);
-      }
 
       this.toast("加购成功");
     },
@@ -353,7 +300,6 @@ export default {
   created() {
    this.getgoodsort();
    this.getallgoods();
-   this.getaddinfos();
   },
   components: {
   	NavBar,
@@ -382,7 +328,7 @@ export default {
     margin-bottom: 5px;
   }
   .imgdiv {
-    width: 30%;
+    width: 15%;
   }
   .good-img {
     width: 100%;
