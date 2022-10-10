@@ -1,7 +1,7 @@
 <template>
   <div>
   	<NavBar>
-  		<div slot="nav-text"><p>CoCo 都可</p></div>
+  		<div slot="nav-text"><p>花园饭店</p></div>
   	</NavBar>
     <Swipe></Swipe>
     <Options></Options>

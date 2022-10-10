@@ -2,10 +2,10 @@
   <div>
   	<div class="nav-bar-posi">
      <NavBar>
-       <div slot="nav-text" class="chos-nav"><span @click="backTo" class="glyphicon glyphicon-chevron-left">  </span><p>CoCo</p></div>
-      </NavBar> 
+       <div slot="nav-text" class="chos-nav"><span @click="backTo" class="glyphicon glyphicon-chevron-left">  </span><p>花园饭店</p></div>
+      </NavBar>
     </div>
-    
+
     <el-tabs :tab-position="tabPosition">
       <el-tab-pane :label="index" v-for="(index,sort) in goodsort" class="navbaritem">
         <div v-for="good in goods" v-show="good.attribute == index" class="goodcards">
@@ -66,7 +66,7 @@
         </div><!-- /.modal-content -->
       </div><!-- /.modal -->
     </div>
-    
+
     <!-- 购物车 -->
     <div class="showthecar">
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -87,13 +87,13 @@
                   <p class="item-add">{{item.charge.toString()}} {{item.temperature}} {{item.sugar}}</p>
                 </div>
                 <p class="item-price">￥{{item.price}}</p>
-                
+
                 <div class="item-edit">
                   <span class="glyphicon glyphicon-minus-sign removeitem"  @click="remove(item)"></span>
                   <span class="nowcount">{{item.count}}</span>
                   <span class="glyphicon glyphicon-plus-sign additem" @click="addsame(item)"></span>
                 </div>
-                
+
               </div>
             </div>
             <div class="modal-footer">
@@ -121,7 +121,7 @@
         <span class="span-havegoods" v-if="totalmoney!=0" @click="submitorder">去结算 ></span>
       </div>
     </div>
-    
+
 
     <!-- 提示框 -->
     <div class="toast" v-show="toastShow">
@@ -157,7 +157,7 @@ export default {
       ifshowthecar: false,
       tabPosition: 'left',
       addfood:[
-        
+
       ],//小料 getaddinfos函数获取
       charge:[],//选择的小料，根据用户选择获取
       warm:['热','温','常规冰','多冰','少冰','去冰'],//温度
@@ -287,7 +287,7 @@ export default {
         }
       }
 
-      
+
       let k = 0;
       let id = -1;
       for(let i = 0; i < this.goodscar.length; i++) {
@@ -334,11 +334,11 @@ export default {
         }
       })
     },
-    clone(obj) { 
+    clone(obj) {
       //深拷贝
-      if(obj === null) return null 
+      if(obj === null) return null
       if(typeof obj !== 'object') return obj;
-      if(obj.constructor===Date) return new Date(obj); 
+      if(obj.constructor===Date) return new Date(obj);
       if(obj.constructor === RegExp) return new RegExp(obj);
       var newObj = new obj.constructor ();  //保持继承链
       for (var key in obj) {
@@ -346,8 +346,8 @@ export default {
           var val = obj[key];
             newObj[key] = typeof val === 'object' ? arguments.callee(val) : val; // 使用arguments.callee解除与函数名的耦合
         }
-      }  
-      return newObj;  
+      }
+      return newObj;
     },
   },
   created() {
@@ -372,8 +372,8 @@ export default {
     margin-left: 5px;
     font-size: 20px;
   }
-  
-  
+
+
   /*每个商品卡片*/
   .goodcards {
     width: 100%;
@@ -486,7 +486,7 @@ export default {
     padding: 0 15px;
     max-width: 150px;
   }
-   
+
    /*弹出的购物车物品*/
   .showthecar {
     background-color: yellow;
@@ -547,6 +547,6 @@ export default {
     width: 100%;
   }
   .addoptions {
-    
+
   }
 </style>

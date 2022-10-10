@@ -15,7 +15,7 @@ export default {
   name: 'Options',
   methods: {
     chooseShop(){
-      this.$router.push('/chooseshop');
+      this.$router.push('/choosegood');
     }
   }
 }
