@@ -38,7 +38,7 @@ CREATE TABLE `food` (
 
 LOCK TABLES `food` WRITE;
 /*!40000 ALTER TABLE `food` DISABLE KEYS */;
-INSERT INTO `food` VALUES ('1','无骨凤爪','餐饮','1.jpg',38);
+INSERT INTO `food` VALUES ('1','无骨凤爪','餐饮','1.jpg',38),('2','盐焗鸡','餐饮','2.jpg',88),('3','广东烧鹅','餐饮','3.jpg',138),('4','海鲜豆腐','餐饮','4.jpg',58);
 /*!40000 ALTER TABLE `food` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-10 21:27:09
+-- Dump completed on 2022-10-11 20:54:55

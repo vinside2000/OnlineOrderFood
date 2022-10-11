@@ -2,58 +2,22 @@
   <div>
   	<NavBar>
      <div slot="nav-text" class="chos-nav"><span @click="backTo" class="glyphicon glyphicon-chevron-left">  </span><p>提交订单</p></div>
-    </NavBar> 
+    </NavBar>
 
-    <ul class="list-group getime">
-      <li class="list-group-item">
-        <p>取单时间</p>
-        <el-time-select
-          v-model="timevalue"
-          :picker-options="{
-            start: '10:00',
-            step: '00:30',
-            end: '21:00'
-          }"
-          placeholder="选择时间" class="timepicker">
-        </el-time-select>
-      </li>
-      <li class="list-group-item">
-        <p>取单地址</p>
-        <span class="address">山东省淄博市张店区人民路与重庆路交汇处水晶街项目F商铺水晶街铺</span>
-      </li>
-    </ul>
-   
     <ul class="list-group order-info">
       <p>订单详情</p>
       <li v-for="item in order" class="list-group-item listyle">
         <div>
           <span class="el-icon-coffee-cup"></span>
-          <p class="item-name">{{item.teaName}}{{item.cupType}}</p>
-          <div class="item-add">
-            <p>{{item.charge}} {{item.temperature}} {{item.sugar}}</p>
-          </div>
+          <p class="item-name">{{item.foodName}}      {{item.taste}}</p>
         </div>
         <p class="item-price">￥{{item.price}}</p>
         <p class="item-count">x{{item.count}}</p>
       </li>
       <p class="order-money">￥{{totalmoney}}</p>
     </ul>
-    
-    <!-- 优惠券 -->
-    <span class="el-icon-s-ticket mydiscount"> 查看我的优惠券</span>
-    
-    <!-- 备注 -->
-    <el-input
-      type="text"
-      placeholder="请输入备注"
-      v-model="remarks"
-      maxlength="30"
-      show-word-limit
-      class="remarks"
-    >
-    </el-input>
 
-    <el-button type="warning" plain icon="el-icon-finished" class="topay" @click="gotopay">去支付</el-button>
+    <el-button type="warning" plain icon="el-icon-finished" class="topay" @click="gotopay">下单</el-button>
   </div>
 </template>
 
@@ -105,7 +69,7 @@ export default {
     gotopay(){
       //去支付
       //将订单信息传给数据库，包括
-      //{用户id，订单包含内容(奶茶id，奶茶名，奶茶数量，奶茶价格，小料，温度，甜度),取单时间，订单备注}
+      //{用户id，订单包含内容}
 
       this.$router.push({
         path: '/paysuccess',
@@ -119,11 +83,11 @@ export default {
     }
   },
   updated(){
-    
+
   },
   created(){
     this.getOrder();
-    
+
     this.getfinal();
   },
   components: {
@@ -145,7 +109,7 @@ export default {
     margin-left: 5px;
     font-size: 20px;
   }
-  
+
   /*取单*/
   .getime li {
 

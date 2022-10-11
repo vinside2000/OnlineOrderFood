@@ -71,7 +71,9 @@
               <div v-for="item in goodscar" class="item-info">
                 <div>
                   <p class="item-name">{{item.foodName}}</p>
+
                 </div>
+                <p class="item-taste">{{item.taste}}</p>
                 <p class="item-price">￥{{item.price}}</p>
 
                 <div class="item-edit">
@@ -234,7 +236,6 @@ export default {
       }
       let temp = {};
       temp.foodId = this.nowgood.foodId;
-      temp.photo = this.nowgood.photo;
       temp.foodName = this.nowgood.foodName;
       let addmoney = 0;
 
@@ -256,6 +257,7 @@ export default {
 
 
       this.toast("加购成功");
+      this.goodscar = this.goodscar.concat(temp);
     },
     removeallevent(){
       this.goodscar = [];
@@ -325,13 +327,14 @@ export default {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 5px;
+    margin-bottom: 50px;
   }
   .imgdiv {
-    width: 15%;
+    width: 100px;
   }
   .good-img {
-    width: 100%;
+    width: 100px;
+    height: 100px;
   }
   .infodiv {
     width: 30%;
@@ -342,11 +345,6 @@ export default {
     position: relative;
     top: 8%;
     left: 20%;
-  }
-  .typecup {
-    position: relative;
-    left: 20%;
-    font-weight: lighter;
   }
   .good-price {
     color: #ffb663;
@@ -453,6 +451,9 @@ export default {
   }
   .item-name {
     width: 100%;
+  }
+  .item-taste{
+    width: 30%;
   }
   .item-add {
     font-size: 10px;
