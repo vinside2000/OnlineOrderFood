@@ -38,7 +38,6 @@ export function getMakingOrder(phone){
 
 
 export function getGoodsort() {
-	//获取奶茶的所有分类，如超值优惠，浓情可可等
 	return request({
 		url: 'http://localhost:31005/food/selectallattribute'
 	})
@@ -70,41 +69,6 @@ export function getShopInfo() {
 	})
 }
 
-export function editShopInfo(infos) {
-	//根据传参修改店铺信息
-	axios.post('',{
-		infos
-	}).then(res=>{
-
-	}).catch(err=>{
-
-	})
-}
-
-export function extraInfos(){
-	//获取小料信息
-	return request({
-		url: 'http://localhost:31005/food/findcharge'
-	})
-}
-
-export function removeInfos(id){
-	//根据id删除小料信息
-	axios.delete('http://localhost:31005/shop/deletecharge/'+id).then(res=>{
-
-	}).catch(err=>{
-		console.log(err);
-	})
-}
-
-export function addFoodInfos(infos){
-	//根据传来的信息，增加小料信息或修改小料信息
-	axios.post('http://localhost:31005/shop/addcharge', infos).then(res=>{
-
-	}).catch(err=>{
-		console.log(err);
-	})
-}
 
 //获取所有订单
 export function getAllOrders(){

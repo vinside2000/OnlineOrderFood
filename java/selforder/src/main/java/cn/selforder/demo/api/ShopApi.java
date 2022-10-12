@@ -38,10 +38,4 @@ public interface ShopApi {
     @ApiOperation("完成 或者 取消某订单")
     public void editstatus(String orderid,String newstatus);
 
-    @ApiOperation("增加或修改小料信息")
-    public void addcharge(Charge charge);
-
-    @ApiOperation("删除小料")
-    public void deletecharge(String id);
-
 }

@@ -13,13 +13,6 @@
 
     <div class="list">
       <ul class="list-group">
-        <router-link v-bind:to="'/mydiscount'">
-          <li class="list-group-item">
-            <span class="el-icon-c-scale-to-original left"></span>
-            <span class="center">我的优惠</span>
-            <span class="el-icon-arrow-right right"></span>
-          </li>
-        </router-link>
 
         <router-link v-bind:to="'/history'">
           <li class="list-group-item">
@@ -36,14 +29,6 @@
             <span class="el-icon-arrow-right right"></span>
           </li>
         </router-link>
-
-<!--        <router-link v-bind:to="'/howuse'">-->
-<!--          <li class="list-group-item">-->
-<!--            <span class="el-icon-warning-outline left"></span>-->
-<!--            <span class="center">平台须知</span>-->
-<!--            <span class="el-icon-arrow-right right"></span>-->
-<!--          </li>-->
-<!--        </router-link>-->
         <button type="button" class="btn btn-warning quit" @click="quit">退出登录</button>
       </ul>
     </div>

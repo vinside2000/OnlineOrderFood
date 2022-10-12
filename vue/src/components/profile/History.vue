@@ -12,7 +12,7 @@
           <p>订单金额 ￥{{order.allprice}}</p>
           <p>包含商品</p>
           <div v-for="item in order.auxxes">
-            <span>商品名称：{{item.FoodName}}{{item.Taste}}</span>
+            <span>商品名称：{{item.foodName}}&nbsp;&nbsp;{{item.taste}}</span>
             <span>数量：{{item.number}}份</span>
             <span>价格：￥{{item.price}}</span>
           </div>

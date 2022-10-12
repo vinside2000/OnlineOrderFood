@@ -1,13 +1,13 @@
--- MySQL dump 10.13  Distrib 8.0.11, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: food
 -- ------------------------------------------------------
--- Server version	8.0.11
+-- Server version	8.0.30
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
- SET NAMES utf8 ;
+/*!50503 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -21,7 +21,7 @@
 
 DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
   `userid` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('U1111','test6','0','123','1111','2022-10-09 10:28:28'),('U11111111','test2','0','123','11111111','2022-10-09 10:04:32'),('U11223300','test','0','123','11223300','2022-10-09 10:02:31'),('U2222','test5','0','123','2222','2022-10-09 10:12:36'),('U3333','test6','0','123','3333','2022-10-09 10:27:34'),('U4444','test7','0','123','4444','2022-10-09 10:28:16'),('U6666','test4','0','123','6666','2022-10-09 10:10:39'),('U8888','test3','0','123','8888','2022-10-09 10:05:42');
+INSERT INTO `users` VALUES ('U1111','test6','0','123','1111','2022-10-09 10:28:28'),('U11111111','test2','0','123','11111111','2022-10-09 10:04:32'),('U11223300','test','0','123','11223300','2022-10-09 10:02:31'),('U1234','v','0','123','1234','2022-10-12 19:05:04'),('U2222','test5','0','123','2222','2022-10-09 10:12:36'),('U3333','test6','0','123','3333','2022-10-09 10:27:34'),('U4444','test7','0','123','4444','2022-10-09 10:28:16'),('U6666','test4','0','123','6666','2022-10-09 10:10:39'),('U8888','test3','0','123','8888','2022-10-09 10:05:42');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-11 20:54:55
+-- Dump completed on 2022-10-12 19:06:17

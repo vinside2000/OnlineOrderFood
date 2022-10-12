@@ -12,11 +12,8 @@ import java.io.Serializable;
 public class Auxx implements Serializable {
 
     @Id
-    private String TeaName;
-    private String CupType;
+    private String FoodName;
     private int Number;
-    private String Charge;
-    private String Temperature;
-    private String Sugar;
+    private String Taste;
     private int Price;
 }

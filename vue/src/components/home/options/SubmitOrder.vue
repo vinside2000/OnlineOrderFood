@@ -9,7 +9,7 @@
       <li v-for="item in order" class="list-group-item listyle">
         <div>
           <span class="el-icon-coffee-cup"></span>
-          <p class="item-name">{{item.foodName}}      {{item.taste}}</p>
+          <p class="item-name">{{item.foodName}}&nbsp;&nbsp;{{item.taste}}</p>
         </div>
         <p class="item-price">￥{{item.price}}</p>
         <p class="item-count">x{{item.count}}</p>

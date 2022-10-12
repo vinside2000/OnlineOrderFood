@@ -62,15 +62,4 @@ public class ShopController implements ShopApi {
     @Autowired
     ChargeRepository chargeRepository;
 
-    @Override
-    @PostMapping("addcharge")
-    public void addcharge(@RequestBody Charge charge){
-        chargeRepository.save(charge);
-    }
-
-    @Override
-    @DeleteMapping("deletecharge/{id}")
-    public void deletecharge(@PathVariable("id") String id){
-        chargeRepository.deleteByChargeId(id);
-    }
 }

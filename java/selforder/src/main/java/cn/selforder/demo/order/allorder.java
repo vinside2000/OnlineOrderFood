@@ -17,10 +17,8 @@ public class allorder implements Serializable {
     @Id
     private String OrderId;
     private String UserId;
-    private String WaiterId;
     private String Time;
     private String Status;
-    private String EndTime;
     private int allprice;
     @ElementCollection(targetClass = Auxx.class)
     public List<Auxx> auxxes;
