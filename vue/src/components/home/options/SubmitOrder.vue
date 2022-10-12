@@ -55,12 +55,10 @@ export default {
       console.log(this.auxiliarylist);
 
       this.finalorder.allprice = this.totalmoney;
-      this.finalorder.endtime = "---";
       this.finalorder.orderid = "";
       this.finalorder.status = "未完成"
       this.finalorder.time = 0;
       this.finalorder.userid = localStorage.getItem("userID");
-      this.finalorder.waiterid = "001";
       this.finalorder.auxiliarylist = this.auxiliarylist;
       console.log(this.finalorder);
 

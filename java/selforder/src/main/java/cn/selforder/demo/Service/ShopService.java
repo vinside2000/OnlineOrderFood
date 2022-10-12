@@ -56,11 +56,9 @@ public class ShopService {
         }
         OrdersMaster ordersMaster = new OrdersMaster();
         ordersMaster.setOrderId(id);
-        ordersMaster.setWaiterId(ordersmasters.getWaiterid());
         ordersMaster.setUserId(ordersmasters.getUserid());
         ordersMaster.setTime(util.gettime());
         ordersMaster.setStatus(ordersmasters.getStatus());
-        ordersMaster.setEndTime("---");
         ordersMaster.setAllprice(ordersmasters.getAllprice());
         ordersMasterRepository.save(ordersMaster);
         List<Auxiliary> auxiliaries = ordersmasters.getAuxiliarylist();
@@ -76,7 +74,6 @@ public class ShopService {
         Optional<OrdersMaster> optional = ordersMasterRepository.findByOrderId(orderid);
         if(optional.isPresent()){
             OrdersMaster ordersMaster = optional.get();
-            ordersMaster.setEndTime(util.gettime());
             ordersMaster.setStatus(newsatus);
             ordersMasterRepository.save(ordersMaster);
         }

@@ -22,15 +22,15 @@
     </resultMap>
 
     <select id="findorder" resultMap="result">
-            SELECT a.orderid One_OrderId,a.waiterid,a.UserId,a.time,a.status,a.endtime,a.allprice,
-            c.TeaName,c.CupType,b.Number,b.Charge,b.Temperature,b.Sugar,b.Price
-    FROM ordersmaster a,auxiliary b,teawithmilk c WHERE a.OrderId = b.OrderId AND a.userid = #{userid} AND c.TeaID = b.TeaId
+            SELECT a.orderid One_OrderId,a.UserId,a.time,a.status,a.allprice,
+            c.FoodName,b.Number,b.Taste,b.Price
+    FROM ordersmaster a,auxiliary b,food c WHERE a.OrderId = b.OrderId AND a.userid = #{userid} AND c.FoodID = b.FoodID
     </select>
 
     <select id="findall" resultMap="result">
-            SELECT a.orderid One_OrderId,a.waiterid,a.UserId,a.time,a.status,a.endtime,a.allprice,
-            c.TeaName,c.CupType,b.Number,b.Charge,b.Temperature,b.Sugar,b.Price
-    FROM ordersmaster a,auxiliary b,teawithmilk c WHERE a.OrderId = b.OrderId AND c.TeaID = b.TeaId
+            SELECT a.orderid One_OrderId,a.UserId,a.time,a.status,a.allprice,
+            c.FoodName,b.Number,b.Taste,b.Price
+    FROM ordersmaster a,auxiliary b,food c WHERE a.OrderId = b.OrderId AND c.FoodID = b.FoodID
     </select>
 
     <select id="findfail" resultMap="result">

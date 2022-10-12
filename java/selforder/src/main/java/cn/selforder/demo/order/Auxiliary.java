@@ -19,12 +19,10 @@ public class Auxiliary implements Serializable {
     private String Id;
     @Column(name = "orderid")
     private String OrderId;
-    @Column(name = "teaid")
-    private String TeaId;
+    @Column(name = "foodid")
+    private String FoodId;
     private int Number;
-    private String Charge;
-    private String Temperature;
-    private String Sugar;
+    private String Taste;
     private int Price;
 
 }

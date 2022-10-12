@@ -9,16 +9,12 @@
         <div>
           <p>订单编号 {{order.orderId}}</p>
           <p>下单时间 {{order.time}}</p>
-          <p>订单金额 {{order.allprice}}</p>
+          <p>订单金额 ￥{{order.allprice}}</p>
           <p>包含商品</p>
           <div v-for="item in order.auxxes">
-            <span>商品名称：{{item.teaName}}{{item.cupType}}</span>
-            <span>数量：{{item.number}}杯</span>
+            <span>商品名称：{{item.FoodName}}{{item.Taste}}</span>
+            <span>数量：{{item.number}}份</span>
             <span>价格：￥{{item.price}}</span>
-            <div>
-              <span>商品详情</span>
-              <span>{{item.charge}} / {{item.temperature}} / {{item.sugar}}</span>
-            </div>
           </div>
         </div>
       </li>
@@ -41,7 +37,7 @@ export default {
   	}
   },
   computed: {
-  	
+
   },
   methods: {
   	backTo() {
@@ -49,7 +45,7 @@ export default {
     },
     gethistoryorder(){
       this.id = localStorage.getItem("userID");
-      
+
       getHistoryOrder(this.id).then(res=>{
         this.historyinfo = res;
         console.log(res);

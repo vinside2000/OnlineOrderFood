@@ -5,9 +5,7 @@
   		<slot name="good-img"></slot>
   	</div>
 		<div class="good-info">
-			<!-- <p>珍珠奶茶/大杯</p> -->
 			<slot name="good-name"></slot>
-			<!-- <span>￥11.0<p>起</p></span> -->
 			<slot name="good-price"></slot>
 			<!-- <span class="glyphicon glyphicon-minus-sign addtocar"></span>
 			<span class="glyphicon glyphicon-plus-sign addtocar" @click="addgood"></span> -->
@@ -20,12 +18,12 @@ export default {
   name: 'GoodCard',
   data(){
   	return {
-  		
+
   	}
   },
   methods: {
   	addgood(){
-  		
+
   	}
   }
 }

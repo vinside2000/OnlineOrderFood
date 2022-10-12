@@ -37,13 +37,13 @@
           </li>
         </router-link>
 
-        <router-link v-bind:to="'/howuse'">
-          <li class="list-group-item">
-            <span class="el-icon-warning-outline left"></span>
-            <span class="center">平台须知</span>
-            <span class="el-icon-arrow-right right"></span>
-          </li>
-        </router-link>
+<!--        <router-link v-bind:to="'/howuse'">-->
+<!--          <li class="list-group-item">-->
+<!--            <span class="el-icon-warning-outline left"></span>-->
+<!--            <span class="center">平台须知</span>-->
+<!--            <span class="el-icon-arrow-right right"></span>-->
+<!--          </li>-->
+<!--        </router-link>-->
         <button type="button" class="btn btn-warning quit" @click="quit">退出登录</button>
       </ul>
     </div>
@@ -78,7 +78,7 @@ export default {
     }
   },
   created(){
-
+      this.username = localStorage.getItem("userName");
   },
   computed: {
     phone(){
@@ -102,8 +102,8 @@ export default {
     top: 40px;
   }
   .logo img {
-    width: 35%;
-    height: 35%;
+    width: 15%;
+    height: 15%;
     border-radius: 50%;
   }
   .name {

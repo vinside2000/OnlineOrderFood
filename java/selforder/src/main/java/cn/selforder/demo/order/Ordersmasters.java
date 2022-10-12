@@ -15,10 +15,8 @@ public class Ordersmasters implements Serializable {
     @Id
     private String orderid;
     private String userid;
-    private String waiterid;
     private String time;
     private String Status;
-    private String endtime;
     private int allprice;
     @ElementCollection(targetClass = Auxiliary.class)
     public List<Auxiliary> auxiliarylist;
